@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+.uv/
+/data/
+/runs/
+*.h5
+*.npz
+*.egg-info/
+.pytest_cache/
+/TIMIT/
+/cheerful-snuggling-seahorse.md
+/runs_pre_fix/
