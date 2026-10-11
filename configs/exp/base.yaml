@@ -1,0 +1,28 @@
+# Shared defaults, inherited (via omegaconf merge in train.py) by every
+# exp/*.yaml. Sec. 3.3: Adam/AMSGrad, lr=1e-3, 30 epochs.
+defaults:
+  data: default
+  model: crn
+
+train:
+  mode: n              # "n" (CRN-n, Eq. 4) or "ns" (CRN-ns, Eqs. 5-6)
+  m_frames: 0           # delay-compensation frames (0, 1, or 2)
+  epochs: 30
+  batch_size: 16
+  lr: 0.001
+  amsgrad: true
+  grad_clip_norm: 5.0
+  loss_norm: none         # "none" (raw Eq. 4/6 MSE) or "d_power" (divided by the
+                          # batch's mean d^2 -- same optimum, O(1) gradients;
+                          # experimental, see REPRODUCTION.md)
+  num_workers: 4
+  rir_set: train         # key into data/rirs.npz to sample per-item RIRs from
+  primary_model: rir      # "rir" (linear RIR) or "volterra" (Eq. 9, Sec. 5.5)
+  secondary_model: rir    # "rir" (SEF loudspeaker + linear RIR) or "nl" (Eqs. 10-11, Sec. 5.5)
+  seed: 0
+  device: cuda
+  amp: false
+  checkpoint_every: 1
+  out_dir: runs/${exp_name}
+
+exp_name: base

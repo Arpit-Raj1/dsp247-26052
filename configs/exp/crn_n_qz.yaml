@@ -1,0 +1,10 @@
+# Quiet zone (Section 5.3): trained on 100 (primary, secondary) RIR pairs
+# sampled at random error-mic positions within a 5cm sphere, so the model
+# learns to cancel noise at any point in the zone rather than one fixed
+# error-mic location.
+defaults: base
+exp_name: crn_n_qz
+train:
+  mode: n
+  m_frames: 0
+  rir_set: quiet_zone_train

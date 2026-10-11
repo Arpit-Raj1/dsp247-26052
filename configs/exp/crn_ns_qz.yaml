@@ -1,0 +1,6 @@
+defaults: base
+exp_name: crn_ns_qz
+train:
+  mode: ns
+  m_frames: 0
+  rir_set: quiet_zone_train

@@ -1,0 +1,16 @@
+# Nonlinear ANC setup (Section 5.5): primary path is a second-order
+# Volterra system (Eq. 9) instead of a linear RIR; secondary path is a
+# fixed tanh saturation + 3-tap FIR (Eqs. 10-11) instead of SEF + RIR.
+# Used to compare against VFxLMS and FxMLP baselines (Table 5).
+defaults: base
+exp_name: crn_n_nl
+train:
+  mode: n
+  m_frames: 0
+  rir_set: train        # still used for the loudspeaker->error-mic secondary
+                          # path's linear component is replaced entirely by
+                          # primary_model/secondary_model below; rir_set is
+                          # kept only as a placeholder for downstream tooling
+                          # that expects the key to exist.
+  primary_model: volterra
+  secondary_model: nl

@@ -1,0 +1,6 @@
+defaults: base
+exp_name: crn_n_m1
+train:
+  mode: n
+  m_frames: 1
+  rir_set: train

@@ -1,0 +1,11 @@
+# Data paths, relative to the project root (or absolute on the cluster,
+# e.g. pointing at $TMPDIR after slurm/train.sbatch stages the shards).
+noise_train_h5: data/noise_train.h5
+noise_val_h5: data/noise_val.h5
+timit_h5: data/timit.h5
+rirs_npz: data/rirs.npz
+
+n_train_items: 20000
+n_val_items: 500
+resample_each_epoch: false
+base_seed: 0
